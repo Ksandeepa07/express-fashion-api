@@ -76,7 +76,7 @@ const productController = {
         try {
             const {id} = req.params;
 
-            const product = await Product.findOne({id}).populate("variations");
+            const product = await Product.findOne({"_id":id}).populate("variations");
 
             if (!product) {
                 return res.status(404).json({message: "Product not found"});
@@ -98,7 +98,7 @@ const productController = {
                 return res.status(404).json({message: "Product not found"});
             }
 
-            res.status(200).json(product);
+            res.status(200).json({message: "Product deleted successfully!",product});
         } catch (error) {
             res.status(500).json({error: error.message});
         }
