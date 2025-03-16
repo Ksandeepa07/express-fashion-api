@@ -6,6 +6,7 @@ const cors = require("cors");
 
 // const authRoutes = require('./routes/authRoutes');
 var productRouter = require('./routes/ProductRoutes');
+var authRouter = require('./routes/AuthRoutes');
 
 
 const app = express();
@@ -20,6 +21,7 @@ DBConnection();
 
 //routes
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/auth', authRouter);
 
 
 const PORT = process.env.PORT || 3003;
