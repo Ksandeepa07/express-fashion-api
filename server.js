@@ -2,11 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require("cors");
+const verifyToken = require('./middleware/authMiddleware');
 
 
-// const authRoutes = require('./routes/authRoutes');
+
+const authRouter = require('./routes/AuthRoutes');
 var productRouter = require('./routes/ProductRoutes');
-var authRouter = require('./routes/AuthRoutes');
+var orderRouter = require('./routes/OrderRoutes');
 
 
 const app = express();
@@ -20,8 +22,10 @@ var DBConnection = require('./db/DBConnection');
 DBConnection();
 
 //routes
-app.use('/api/v1/products', productRouter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/products', productRouter);
+app.use('/api/v1/orders', orderRouter);
+
 
 
 const PORT = process.env.PORT || 3003;

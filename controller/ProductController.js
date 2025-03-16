@@ -72,7 +72,6 @@ const productController = {
     },
 
     getProductById: async function (req, res, next) {
-        console.log('dd')
         try {
             const {id} = req.params;
 

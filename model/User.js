@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-const authModel = mongoose.Schema({
+const userModel = mongoose.Schema({
 
         "email": {
             require: true,
@@ -23,6 +23,6 @@ const authModel = mongoose.Schema({
 )
 
 
-const product = mongoose.model("auth", authModel);
-module.exports = product;
+const user = mongoose.model("user", userModel);
+module.exports = user;
 
